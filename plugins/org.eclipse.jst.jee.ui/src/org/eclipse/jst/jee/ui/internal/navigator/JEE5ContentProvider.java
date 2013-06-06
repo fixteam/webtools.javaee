@@ -72,7 +72,7 @@ public abstract class JEE5ContentProvider implements ITreeContentProvider, IRefr
 
 	protected IModelProvider getCachedModelProvider(IProject project) {
 		IModelProvider provider = groupProvidersMap.get(project);
-		if (provider == null){
+		/*if (provider == null){
 			try {
 				provider = ModelProviderManager.getModelProvider(project);
 				provider.addListener(this);
@@ -81,7 +81,7 @@ public abstract class JEE5ContentProvider implements ITreeContentProvider, IRefr
 				// TODO: handle exception
 			}
 			
-		}
+		}*/
 		return provider;
 	}
 
