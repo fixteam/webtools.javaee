@@ -73,9 +73,14 @@ public abstract class JEE5ContentProvider implements ITreeContentProvider, IRefr
 	protected IModelProvider getCachedModelProvider(IProject project) {
 		IModelProvider provider = groupProvidersMap.get(project);
 		if (provider == null){
-			provider = ModelProviderManager.getModelProvider(project);
-			provider.addListener(this);
-			groupProvidersMap.put(project,provider);
+			try {
+				provider = ModelProviderManager.getModelProvider(project);
+				provider.addListener(this);
+				groupProvidersMap.put(project,provider);
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			
 		}
 		return provider;
 	}
