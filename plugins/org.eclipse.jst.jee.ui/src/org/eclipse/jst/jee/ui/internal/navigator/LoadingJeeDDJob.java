@@ -10,36 +10,37 @@
  ***********************************************************************/
 package org.eclipse.jst.jee.ui.internal.navigator;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
-import org.eclipse.jface.viewers.AbstractTreeViewer;
-import org.eclipse.jface.viewers.StructuredViewer;
+
 import org.eclipse.jface.viewers.Viewer;
-import org.eclipse.jst.j2ee.navigator.internal.LoadingDDUIJob;
+
 
 public class LoadingJeeDDJob extends Job {
-
-	private final Viewer viewer;
-	private final JEE5ContentProvider rootProvider;
-	private final IProject project;
-	private final LoadingGroupProvider provider;
+	
+	//private final Viewer viewer;
+	//private final JEE5ContentProvider rootProvider;
+	//private final IProject project;
+	//private final LoadingGroupProvider provider;
 
 	public LoadingJeeDDJob(Viewer viewer2, LoadingGroupProvider provider, IProject project, JEE5ContentProvider rootProvider) {
 		super(provider.getText());
-		this.viewer = viewer2;
-		this.provider = provider;
-		this.project = project;
-		this.rootProvider = rootProvider;
+		//this.viewer = viewer2;
+		//this.provider = provider;
+		//this.project = project;
+		//this.rootProvider = rootProvider;
 	}
 
 	@Override
 	protected IStatus run(IProgressMonitor arg0) {
+		
+		return Status.OK_STATUS;
+		
+		/*
 		LoadingDDUIJob updateUIJob = new LoadingDDUIJob((StructuredViewer) viewer, provider.getPlaceHolder());
 		updateUIJob.schedule();
 
@@ -59,13 +60,13 @@ public class LoadingJeeDDJob extends Job {
 			}
 			throw e;
 		} finally {
-			/* dispose of the place holder, causes the termination of the animation job */
+			
 			provider.dispose();
 			new ClearJeePlaceHolderJob((AbstractTreeViewer) viewer, provider, project, children.toArray()).schedule();
 		}
 
 
-		return Status.OK_STATUS;
+		return Status.OK_STATUS;*/
 	}
 
 }
